@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-creme: #fff6e5;
+  --color-encre: #17131a;
+  --color-rose: #ff2e88;
+  --color-rose-pale: #ffc2dc;
+  --color-citron: #ffd23f;
+  --color-haricot: #6cc24a;
+  --color-lilas: #a58bff;
+
+  --font-titre: "Bagel Fat One", system-ui, sans-serif;
+  --font-sans: "Space Grotesk", system-ui, sans-serif;
+
+  --shadow-brut: 6px 6px 0 var(--color-encre);
+
+  --animate-pop: pop 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
+  --animate-flotte: flotte 4s ease-in-out infinite;
+
+  @keyframes pop {
+    0% { transform: translateY(-40%) scale(0.6); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+  }
+  @keyframes flotte {
+    0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+    50% { transform: translateY(-14px) rotate(calc(var(--r, 0deg) + 12deg)); }
+  }
+}
+
+@keyframes chute {
+  from { transform: translateY(-10vh) rotate(0deg); }
+  to { transform: translateY(110vh) rotate(720deg); }
+}
+
+body {
+  background-color: var(--color-creme);
+  background-image: radial-gradient(var(--color-rose-pale) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  color: var(--color-encre);
+  font-family: var(--font-sans);
+}
+
+.confetti {
+  animation: chute var(--duree) linear var(--delai) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
