@@ -11,7 +11,7 @@ export default function Confettis() {
         delai: Math.random() * -8,
         duree: 4 + Math.random() * 5,
         taille: 10 + Math.random() * 22,
-        couleur: COULEURS[i % COULEURS.length],
+        couleur: COULEURS[(i % 4 === 0 ? i / 4 : i) % COULEURS.length],
         haricot: i % 4 === 0,
       })),
     [],
