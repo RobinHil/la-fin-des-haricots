@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@custom-variant grand (@media (width >= 80rem) and (height >= 45rem));
+@custom-variant paysage (@media (orientation: landscape) and (height < 32rem));
+
 @theme {
   --color-creme: #fff6e5;
   --color-encre: #17131a;
